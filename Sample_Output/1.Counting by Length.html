@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://localhost/php/Collatz_Launcher.php?tab=length -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Counting by Length - Collatz Conjecture Tool Suite</title>
+<style>
+    body  { font-family: monospace; margin: 0; padding: 0; background: #f4f6f9; }
+    .topbar { background: #1e3a8a; padding: 16px 24px; }
+    .topbar h1 { color: white; margin: 0; font-size: 22px; text-align: center; }
+    .menu { background: #163066; display: flex; justify-content: center; flex-wrap: wrap; }
+    .menu a { color: #cfe0ff; text-decoration: none; padding: 12px 18px; font-size: 14px; }
+    .menu a:hover, .menu a.active { background: #0d1f47; color: white; }
+    .container { max-width: 1300px; margin: 20px auto; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    h2 { text-align: center; color: #1e3a8a; }
+    table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+    th, td { border: 1px solid #444; padding: 10px; text-align: center; }
+    th { background: #1e3a8a; color: white; }
+    td.left { text-align: left; }
+    .sci { font-size: 0.95em; color: #d32f2f; font-weight: bold; }
+    .time { font-size: 16px; color: #1e3a8a; font-weight: bold; text-align: center; }
+    .error { color: red; text-align: center; font-weight: bold; }
+    .desc { width: 85%; margin: 0 auto 20px; line-height: 1.7; }
+    form { text-align: center; margin: 20px 0; }
+    input[type="text"], input[type="number"] { padding: 6px; font-size: 14px; }
+    input[type="submit"], button { padding: 10px 30px; font-size: 15px; background: #0066cc; color: white; border: none; cursor: pointer; border-radius: 4px; margin-left: 10px; }
+    input[type="submit"]:hover, button:hover { background: #0055aa; }
+    .pv-table { border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+    .pv-table th, .pv-table td { border: 1px solid #888; padding: 3px 6px; text-align: center; white-space: nowrap; }
+    .pv-header-row th { background: orange; color: black; }
+    .pv-header-row th:first-child { background: white; font-size: 11px; }
+    .yellow { background: yellow; }
+    .red-bold { color: red; font-weight: bold; }
+    .explain-box { max-width: 380px; background:#fff8e1; border:1px solid #d4a017; border-radius:8px; padding:14px 18px; font-size:13px; line-height:1.7; }
+    .result-table { border-collapse: collapse; width: 95%; margin: 20px auto; background: white; }
+    .result-table td { border: 0; padding: 3px 8px; white-space: nowrap; text-align:left; }
+    .highlight { color: red; font-weight: bold; }
+    .summary { color: red; text-align:left; }
+    a.dl { color: #0066cc; }
+    .footer { text-align: center; color: #888; font-size: 12px; margin: 30px 0; }
+</style>
+</head>
+<body>
+<div class="topbar"><h1>Collatz Conjecture Tool Suite</h1></div>
+<div class="menu"><a href="http://localhost/php/Collatz_Launcher.php?tab=home">Home</a><a href="http://localhost/php/Collatz_Launcher.php?tab=length" class="active">1. Counting by Length</a><a href="http://localhost/php/Collatz_Launcher.php?tab=hamming">2. Counting by Hamming Weight</a><a href="http://localhost/php/Collatz_Launcher.php?tab=calculator">3. Collatz Calculator</a><a href="http://localhost/php/Collatz_Launcher.php?tab=pvgraph">4. PV Graph (from PV string)</a><a href="http://localhost/php/Collatz_Launcher.php?tab=numgraph">5. PV Graph (from Number)</a></div>
+<div class="container">
+<h2>1. Counting by Length</h2>
+<div class="desc">Counts the number of converged and unconverged Parity Vectors for each bit length k.</div>
+<form method="POST" action="http://localhost/php/Collatz_Launcher.php?tab=length">
+    <label>Start (A): <input type="number" name="A" value="" min="1" max="10000" required=""></label>
+    <label>End (B): <input type="number" name="B" value="" min="1" max="10000" required=""></label>
+    <label>Ratio Precision: <input type="number" name="PREC" value="15" min="5" max="50" required=""></label>
+    <input type="submit" value="Start Calculation">
+</form><p class="time">Start Time: 2026-06-30 21:53:45</p><table><tbody><tr><th>k</th><th>Conv Steps</th><th>(A) Total PVs</th><th>(B) Converged</th><th>(C) Already Conv.</th><th>(D) Unconverged</th><th>(E) Ratio D/A</th></tr><tr><td><b>1</b></td><td>1</td><td class="left">2<br><small>2</small></td><td class="left">1<br><small>1</small></td><td class="left">0<br><small>0</small></td><td class="left">1<br><small>1</small></td><td class="left"><span class="sci">5.000000000000000e-1</span></td></tr><tr><td><b>2</b></td><td>2</td><td class="left">4<br><small>4</small></td><td class="left">1<br><small>1</small></td><td class="left">2<br><small>2</small></td><td class="left">1<br><small>1</small></td><td class="left"><span class="sci">2.500000000000000e-1</span></td></tr><tr><td><b>3</b></td><td>-</td><td class="left">8<br><small>8</small></td><td class="left">0<br><small>0</small></td><td class="left">6<br><small>6</small></td><td class="left">2<br><small>2</small></td><td class="left"><span class="sci">2.500000000000000e-1</span></td></tr><tr><td><b>4</b></td><td>4</td><td class="left">16<br><small>16</small></td><td class="left">1<br><small>1</small></td><td class="left">12<br><small>12</small></td><td class="left">3<br><small>3</small></td><td class="left"><span class="sci">1.875000000000000e-1</span></td></tr><tr><td><b>5</b></td><td>5</td><td class="left">32<br><small>32</small></td><td class="left">2<br><small>2</small></td><td class="left">26<br><small>26</small></td><td class="left">4<br><small>4</small></td><td class="left"><span class="sci">1.250000000000000e-1</span></td></tr><tr><td><b>6</b></td><td>-</td><td class="left">64<br><small>64</small></td><td class="left">0<br><small>0</small></td><td class="left">56<br><small>56</small></td><td class="left">8<br><small>8</small></td><td class="left"><span class="sci">1.250000000000000e-1</span></td></tr><tr><td><b>7</b></td><td>7</td><td class="left">128<br><small>128</small></td><td class="left">3<br><small>3</small></td><td class="left">112<br><small>112</small></td><td class="left">13<br><small>13</small></td><td class="left"><span class="sci">1.015625000000000e-1</span></td></tr><tr><td><b>8</b></td><td>8</td><td class="left">256<br><small>256</small></td><td class="left">7<br><small>7</small></td><td class="left">230<br><small>230</small></td><td class="left">19<br><small>19</small></td><td class="left"><span class="sci">7.421875000000000e-2</span></td></tr><tr><td><b>9</b></td><td>-</td><td class="left">512<br><small>512</small></td><td class="left">0<br><small>0</small></td><td class="left">474<br><small>474</small></td><td class="left">38<br><small>38</small></td><td class="left"><span class="sci">7.421875000000000e-2</span></td></tr><tr><td><b>10</b></td><td>10</td><td class="left">1,024<br><small>1024</small></td><td class="left">12<br><small>12</small></td><td class="left">948<br><small>948</small></td><td class="left">64<br><small>64</small></td><td class="left"><span class="sci">6.250000000000000e-2</span></td></tr><tr><td><b>11</b></td><td>-</td><td class="left">2,048<br><small>2048</small></td><td class="left">0<br><small>0</small></td><td class="left">1,920<br><small>1920</small></td><td class="left">128<br><small>128</small></td><td class="left"><span class="sci">6.250000000000000e-2</span></td></tr><tr><td><b>12</b></td><td>12</td><td class="left">4,096<br><small>4096</small></td><td class="left">30<br><small>30</small></td><td class="left">3,840<br><small>3840</small></td><td class="left">226<br><small>226</small></td><td class="left"><span class="sci">5.517578125000000e-2</span></td></tr><tr><td><b>13</b></td><td>13</td><td class="left">8,192<br><small>8192</small></td><td class="left">85<br><small>85</small></td><td class="left">7,740<br><small>7740</small></td><td class="left">367<br><small>367</small></td><td class="left"><span class="sci">4.479980468750000e-2</span></td></tr><tr><td><b>14</b></td><td>-</td><td class="left">16,384<br><small>16384</small></td><td class="left">0<br><small>0</small></td><td class="left">15,650<br><small>15650</small></td><td class="left">734<br><small>734</small></td><td class="left"><span class="sci">4.479980468750000e-2</span></td></tr><tr><td><b>15</b></td><td>15</td><td class="left">32,768<br><small>32768</small></td><td class="left">173<br><small>173</small></td><td class="left">31,300<br><small>31300</small></td><td class="left">1,295<br><small>1295</small></td><td class="left"><span class="sci">3.952026367187500e-2</span></td></tr><tr><td><b>16</b></td><td>16</td><td class="left">65,536<br><small>65536</small></td><td class="left">476<br><small>476</small></td><td class="left">62,946<br><small>62946</small></td><td class="left">2,114<br><small>2114</small></td><td class="left"><span class="sci">3.225708007812500e-2</span></td></tr><tr><td><b>17</b></td><td>-</td><td class="left">131,072<br><small>131072</small></td><td class="left">0<br><small>0</small></td><td class="left">126,844<br><small>126844</small></td><td class="left">4,228<br><small>4228</small></td><td class="left"><span class="sci">3.225708007812500e-2</span></td></tr><tr><td><b>18</b></td><td>18</td><td class="left">262,144<br><small>262144</small></td><td class="left">961<br><small>961</small></td><td class="left">253,688<br><small>253688</small></td><td class="left">7,495<br><small>7495</small></td><td class="left"><span class="sci">2.859115600585937e-2</span></td></tr><tr><td><b>19</b></td><td>-</td><td class="left">524,288<br><small>524288</small></td><td class="left">0<br><small>0</small></td><td class="left">509,298<br><small>509298</small></td><td class="left">14,990<br><small>14990</small></td><td class="left"><span class="sci">2.859115600585937e-2</span></td></tr><tr><td><b>20</b></td><td>20</td><td class="left">1,048,576<br><small>1048576</small></td><td class="left">2,652<br><small>2652</small></td><td class="left">1,018,596<br><small>1018596</small></td><td class="left">27,328<br><small>27328</small></td><td class="left"><span class="sci">2.606201171875000e-2</span></td></tr></tbody></table><p class="time">End Time: 2026-06-30 21:53:45<br><strong>Processing Time: 0.01 seconds</strong></p><p style="text-align:center"><a class="dl" href="http://localhost/php/data/PV_Length_1_20.txt" download="">📥 Download TXT Result</a></p>
+</div>
+<div class="footer">Collatz Conjecture Tool Suite — Unified Launcher (PHP)</div>
+
+<deepl-input-controller translate="no"><template shadowrootmode="open"><link rel="stylesheet" href="chrome-extension://cofdbpoegempjloogbagkncekinflcnj/build/content.css"><div dir="ltr" style="visibility: initial !important;"><div class="dl-input-translation-container svelte-95aucy"><div></div></div></div></template></deepl-input-controller></body></html>

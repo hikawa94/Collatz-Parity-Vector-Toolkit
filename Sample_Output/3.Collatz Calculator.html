@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)http://localhost/php/Collatz_Launcher.php?tab=calculator -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Collatz Calculator - Collatz Conjecture Tool Suite</title>
+<style>
+    body  { font-family: monospace; margin: 0; padding: 0; background: #f4f6f9; }
+    .topbar { background: #1e3a8a; padding: 16px 24px; }
+    .topbar h1 { color: white; margin: 0; font-size: 22px; text-align: center; }
+    .menu { background: #163066; display: flex; justify-content: center; flex-wrap: wrap; }
+    .menu a { color: #cfe0ff; text-decoration: none; padding: 12px 18px; font-size: 14px; }
+    .menu a:hover, .menu a.active { background: #0d1f47; color: white; }
+    .container { max-width: 1300px; margin: 20px auto; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    h2 { text-align: center; color: #1e3a8a; }
+    table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+    th, td { border: 1px solid #444; padding: 10px; text-align: center; }
+    th { background: #1e3a8a; color: white; }
+    td.left { text-align: left; }
+    .sci { font-size: 0.95em; color: #d32f2f; font-weight: bold; }
+    .time { font-size: 16px; color: #1e3a8a; font-weight: bold; text-align: center; }
+    .error { color: red; text-align: center; font-weight: bold; }
+    .desc { width: 85%; margin: 0 auto 20px; line-height: 1.7; }
+    form { text-align: center; margin: 20px 0; }
+    input[type="text"], input[type="number"] { padding: 6px; font-size: 14px; }
+    input[type="submit"], button { padding: 10px 30px; font-size: 15px; background: #0066cc; color: white; border: none; cursor: pointer; border-radius: 4px; margin-left: 10px; }
+    input[type="submit"]:hover, button:hover { background: #0055aa; }
+    .pv-table { border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+    .pv-table th, .pv-table td { border: 1px solid #888; padding: 3px 6px; text-align: center; white-space: nowrap; }
+    .pv-header-row th { background: orange; color: black; }
+    .pv-header-row th:first-child { background: white; font-size: 11px; }
+    .yellow { background: yellow; }
+    .red-bold { color: red; font-weight: bold; }
+    .explain-box { max-width: 380px; background:#fff8e1; border:1px solid #d4a017; border-radius:8px; padding:14px 18px; font-size:13px; line-height:1.7; }
+    .result-table { border-collapse: collapse; width: 95%; margin: 20px auto; background: white; }
+    .result-table td { border: 0; padding: 3px 8px; white-space: nowrap; text-align:left; }
+    .highlight { color: red; font-weight: bold; }
+    .summary { color: red; text-align:left; }
+    a.dl { color: #0066cc; }
+    .footer { text-align: center; color: #888; font-size: 12px; margin: 30px 0; }
+</style>
+</head>
+<body>
+<div class="topbar"><h1>Collatz Conjecture Tool Suite</h1></div>
+<div class="menu"><a href="http://localhost/php/Collatz_Launcher.php?tab=home">Home</a><a href="http://localhost/php/Collatz_Launcher.php?tab=length">1. Counting by Length</a><a href="http://localhost/php/Collatz_Launcher.php?tab=hamming">2. Counting by Hamming Weight</a><a href="http://localhost/php/Collatz_Launcher.php?tab=calculator" class="active">3. Collatz Calculator</a><a href="http://localhost/php/Collatz_Launcher.php?tab=pvgraph">4. PV Graph (from PV string)</a><a href="http://localhost/php/Collatz_Launcher.php?tab=numgraph">5. PV Graph (from Number)</a></div>
+<div class="container">
+<h2>3. Collatz Calculator</h2>
+<div class="desc">Computes the Collatz sequence for any large natural number, step by step, highlighting the first point where the value drops below the initial input, and reports the Glide and Parity Vector.</div>
+<form method="POST" action="http://localhost/php/Collatz_Launcher.php?tab=calculator">
+    <table style="width:auto; margin:0 auto; background:transparent; border:none;">
+    <tbody><tr><td colspan="2">Enter any natural number (integer, any number of digits):</td></tr>
+    <tr><td colspan="2"><input type="text" name="txtN1" size="60" oninput="this.value = this.value.replace(/[^0-9]/g, &#39;&#39;);" placeholder="e.g. 27"></td></tr>
+    <tr><td>Screen display:</td><td><input type="radio" name="gamen" value="Yes" checked=""> Show all steps <input type="radio" name="gamen" value="No"> Hide intermediate steps</td></tr>
+    <tr><td>File output:</td><td><input type="radio" name="ffout" value="Yes" checked=""> Save to data/ <input type="radio" name="ffout" value="No"> Do not save</td></tr>
+    <tr><td colspan="2" style="text-align:center; padding-top:10px;"><input type="submit" value="Run Calculation"></td></tr>
+    </tbody></table>
+</form><div style="text-align:center"><p><font color="red">Input value = 27</font></p><hr style="width:80%"></div><table class="result-table"><tbody><tr><td>(27 * 3 + 1) / 2</td><td>=</td><td>41</td><td>(r=9)</td></tr><tr><td>(41 * 3 + 1) / 2</td><td>=</td><td>62</td><td>(r=30)</td></tr><tr><td>62 / 2</td><td>=</td><td>31</td><td>(r=31)</td></tr><tr><td>(31 * 3 + 1) / 2</td><td>=</td><td>47</td><td>(r=15)</td></tr><tr><td>(47 * 3 + 1) / 2</td><td>=</td><td>71</td><td>(r=7)</td></tr><tr><td>(71 * 3 + 1) / 2</td><td>=</td><td>107</td><td>(r=11)</td></tr><tr><td>(107 * 3 + 1) / 2</td><td>=</td><td>161</td><td>(r=1)</td></tr><tr><td>(161 * 3 + 1) / 2</td><td>=</td><td>242</td><td>(r=18)</td></tr><tr><td>242 / 2</td><td>=</td><td>121</td><td>(r=25)</td></tr><tr><td>(121 * 3 + 1) / 2</td><td>=</td><td>182</td><td>(r=22)</td></tr><tr><td>182 / 2</td><td>=</td><td>91</td><td>(r=27)</td></tr><tr><td>(91 * 3 + 1) / 2</td><td>=</td><td>137</td><td>(r=9)</td></tr><tr><td>(137 * 3 + 1) / 2</td><td>=</td><td>206</td><td>(r=14)</td></tr><tr><td>206 / 2</td><td>=</td><td>103</td><td>(r=7)</td></tr><tr><td>(103 * 3 + 1) / 2</td><td>=</td><td>155</td><td>(r=27)</td></tr><tr><td>(155 * 3 + 1) / 2</td><td>=</td><td>233</td><td>(r=9)</td></tr><tr><td>(233 * 3 + 1) / 2</td><td>=</td><td>350</td><td>(r=30)</td></tr><tr><td>350 / 2</td><td>=</td><td>175</td><td>(r=15)</td></tr><tr><td>(175 * 3 + 1) / 2</td><td>=</td><td>263</td><td>(r=7)</td></tr><tr><td>(263 * 3 + 1) / 2</td><td>=</td><td>395</td><td>(r=11)</td></tr><tr><td>(395 * 3 + 1) / 2</td><td>=</td><td>593</td><td>(r=17)</td></tr><tr><td>(593 * 3 + 1) / 2</td><td>=</td><td>890</td><td>(r=26)</td></tr><tr><td>890 / 2</td><td>=</td><td>445</td><td>(r=29)</td></tr><tr><td>(445 * 3 + 1) / 2</td><td>=</td><td>668</td><td>(r=28)</td></tr><tr><td>668 / 2</td><td>=</td><td>334</td><td>(r=14)</td></tr><tr><td>334 / 2</td><td>=</td><td>167</td><td>(r=7)</td></tr><tr><td>(167 * 3 + 1) / 2</td><td>=</td><td>251</td><td>(r=27)</td></tr><tr><td>(251 * 3 + 1) / 2</td><td>=</td><td>377</td><td>(r=25)</td></tr><tr><td>(377 * 3 + 1) / 2</td><td>=</td><td>566</td><td>(r=22)</td></tr><tr><td>566 / 2</td><td>=</td><td>283</td><td>(r=27)</td></tr><tr><td>(283 * 3 + 1) / 2</td><td>=</td><td>425</td><td>(r=9)</td></tr><tr><td>(425 * 3 + 1) / 2</td><td>=</td><td>638</td><td>(r=30)</td></tr><tr><td>638 / 2</td><td>=</td><td>319</td><td>(r=31)</td></tr><tr><td>(319 * 3 + 1) / 2</td><td>=</td><td>479</td><td>(r=31)</td></tr><tr><td>(479 * 3 + 1) / 2</td><td>=</td><td>719</td><td>(r=15)</td></tr><tr><td>(719 * 3 + 1) / 2</td><td>=</td><td>1079</td><td>(r=23)</td></tr><tr><td>(1079 * 3 + 1) / 2</td><td>=</td><td>1619</td><td>(r=19)</td></tr><tr><td>(1619 * 3 + 1) / 2</td><td>=</td><td>2429</td><td>(r=29)</td></tr><tr><td>(2429 * 3 + 1) / 2</td><td>=</td><td>3644</td><td>(r=28)</td></tr><tr><td>3644 / 2</td><td>=</td><td>1822</td><td>(r=30)</td></tr><tr><td>1822 / 2</td><td>=</td><td>911</td><td>(r=15)</td></tr><tr><td>(911 * 3 + 1) / 2</td><td>=</td><td>1367</td><td>(r=23)</td></tr><tr><td>(1367 * 3 + 1) / 2</td><td>=</td><td>2051</td><td>(r=3)</td></tr><tr><td>(2051 * 3 + 1) / 2</td><td>=</td><td>3077</td><td>(r=5)</td></tr><tr><td>(3077 * 3 + 1) / 2</td><td>=</td><td>4616</td><td>(r=8)</td></tr><tr><td>4616 / 2</td><td>=</td><td>2308</td><td>(r=4)</td></tr><tr><td>2308 / 2</td><td>=</td><td>1154</td><td>(r=2)</td></tr><tr><td>1154 / 2</td><td>=</td><td>577</td><td>(r=1)</td></tr><tr><td>(577 * 3 + 1) / 2</td><td>=</td><td>866</td><td>(r=2)</td></tr><tr><td>866 / 2</td><td>=</td><td>433</td><td>(r=17)</td></tr><tr><td>(433 * 3 + 1) / 2</td><td>=</td><td>650</td><td>(r=10)</td></tr><tr><td>650 / 2</td><td>=</td><td>325</td><td>(r=5)</td></tr><tr><td>(325 * 3 + 1) / 2</td><td>=</td><td>488</td><td>(r=8)</td></tr><tr><td>488 / 2</td><td>=</td><td>244</td><td>(r=20)</td></tr><tr><td>244 / 2</td><td>=</td><td>122</td><td>(r=26)</td></tr><tr><td>122 / 2</td><td>=</td><td>61</td><td>(r=29)</td></tr><tr><td>(61 * 3 + 1) / 2</td><td>=</td><td>92</td><td>(r=28)</td></tr><tr><td>92 / 2</td><td>=</td><td>46</td><td>(r=14)</td></tr><tr><td>46 / 2</td><td>=</td><td>23</td><td class="highlight">(r=23) &lt; 27 &lt;--- step 59</td></tr><tr><td>(23 * 3 + 1) / 2</td><td>=</td><td>35</td><td>(r=3)</td></tr><tr><td>(35 * 3 + 1) / 2</td><td>=</td><td>53</td><td>(r=21)</td></tr><tr><td>(53 * 3 + 1) / 2</td><td>=</td><td>80</td><td>(r=16)</td></tr><tr><td>80 / 2</td><td>=</td><td>40</td><td>(r=8)</td></tr><tr><td>40 / 2</td><td>=</td><td>20</td><td>(r=20)</td></tr><tr><td>20 / 2</td><td>=</td><td>10</td><td>(r=10)</td></tr><tr><td>10 / 2</td><td>=</td><td>5</td><td>(r=5)</td></tr><tr><td>(5 * 3 + 1) / 2</td><td>=</td><td>8</td><td>(r=8)</td></tr><tr><td>8 / 2</td><td>=</td><td>4</td><td>(r=4)</td></tr><tr><td>4 / 2</td><td>=</td><td>2</td><td>(r=2)</td></tr><tr><td>2 / 2</td><td>=</td><td>1</td><td>(r=1)</td></tr><tr><td colspan="4"><hr></td></tr><tr><td colspan="4" class="summary">Steps to reach 1: <b>70</b></td></tr><tr><td colspan="4" class="summary">Glide(27) = <b>59</b></td></tr><tr><td colspan="4" class="summary">Parity Vector up to Glide: <b>(11011111010110111011110100111011011111100111100010101000100)</b></td></tr><tr><td colspan="4" class="time">Processing Time: 0.002378 seconds</td></tr></tbody></table><p style="text-align:center"><a class="dl" href="http://localhost/php/data/Collatz-27.csv" download="">📥 Download CSV Result</a></p>
+</div>
+<div class="footer">Collatz Conjecture Tool Suite — Unified Launcher (PHP)</div>
+
+<deepl-input-controller translate="no"><template shadowrootmode="open"><link rel="stylesheet" href="chrome-extension://cofdbpoegempjloogbagkncekinflcnj/build/content.css"><div dir="ltr" style="visibility: initial !important;"><div class="dl-input-translation-container svelte-95aucy"><div></div></div></div></template></deepl-input-controller></body></html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)http://localhost/php/Collatz_Launcher.php?tab=numgraph -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>PV Graph from Number - Collatz Conjecture Tool Suite</title>
+<style>
+    body  { font-family: monospace; margin: 0; padding: 0; background: #f4f6f9; }
+    .topbar { background: #1e3a8a; padding: 16px 24px; }
+    .topbar h1 { color: white; margin: 0; font-size: 22px; text-align: center; }
+    .menu { background: #163066; display: flex; justify-content: center; flex-wrap: wrap; }
+    .menu a { color: #cfe0ff; text-decoration: none; padding: 12px 18px; font-size: 14px; }
+    .menu a:hover, .menu a.active { background: #0d1f47; color: white; }
+    .container { max-width: 1300px; margin: 20px auto; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    h2 { text-align: center; color: #1e3a8a; }
+    table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+    th, td { border: 1px solid #444; padding: 10px; text-align: center; }
+    th { background: #1e3a8a; color: white; }
+    td.left { text-align: left; }
+    .sci { font-size: 0.95em; color: #d32f2f; font-weight: bold; }
+    .time { font-size: 16px; color: #1e3a8a; font-weight: bold; text-align: center; }
+    .error { color: red; text-align: center; font-weight: bold; }
+    .desc { width: 85%; margin: 0 auto 20px; line-height: 1.7; }
+    form { text-align: center; margin: 20px 0; }
+    input[type="text"], input[type="number"] { padding: 6px; font-size: 14px; }
+    input[type="submit"], button { padding: 10px 30px; font-size: 15px; background: #0066cc; color: white; border: none; cursor: pointer; border-radius: 4px; margin-left: 10px; }
+    input[type="submit"]:hover, button:hover { background: #0055aa; }
+    .pv-table { border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+    .pv-table th, .pv-table td { border: 1px solid #888; padding: 3px 6px; text-align: center; white-space: nowrap; }
+    .pv-header-row th { background: orange; color: black; }
+    .pv-header-row th:first-child { background: white; font-size: 11px; }
+    .yellow { background: yellow; }
+    .red-bold { color: red; font-weight: bold; }
+    .explain-box { max-width: 380px; background:#fff8e1; border:1px solid #d4a017; border-radius:8px; padding:14px 18px; font-size:13px; line-height:1.7; }
+    .result-table { border-collapse: collapse; width: 95%; margin: 20px auto; background: white; }
+    .result-table td { border: 0; padding: 3px 8px; white-space: nowrap; text-align:left; }
+    .highlight { color: red; font-weight: bold; }
+    .summary { color: red; text-align:left; }
+    a.dl { color: #0066cc; }
+    .footer { text-align: center; color: #888; font-size: 12px; margin: 30px 0; }
+</style>
+</head>
+<body>
+<div class="topbar"><h1>Collatz Conjecture Tool Suite</h1></div>
+<div class="menu"><a href="http://localhost/php/Collatz_Launcher.php?tab=home">Home</a><a href="http://localhost/php/Collatz_Launcher.php?tab=length">1. Counting by Length</a><a href="http://localhost/php/Collatz_Launcher.php?tab=hamming">2. Counting by Hamming Weight</a><a href="http://localhost/php/Collatz_Launcher.php?tab=calculator">3. Collatz Calculator</a><a href="http://localhost/php/Collatz_Launcher.php?tab=pvgraph">4. PV Graph (from PV string)</a><a href="http://localhost/php/Collatz_Launcher.php?tab=numgraph" class="active">5. PV Graph (from Number)</a></div>
+<div class="container">
+<h2>5. Parity Vector Graph (from Number)</h2>
+<div class="desc">Enter a positive integer N (greater than 1) to compute and visualize its Parity Vector up to the Glide point.</div>
+<form method="POST" action="http://localhost/php/Collatz_Launcher.php?tab=numgraph">
+    <input type="text" name="number" value="" size="40" placeholder="e.g. 27" oninput="this.value = this.value.replace(/[^0-9]/g, &#39;&#39;);">
+    <input type="submit" value="Execute">
+</form><p class="time">Status: Glide = 7, Number of times reaching 1 = 12<br>Input N: 15 &nbsp; PV Length: 12 &nbsp; Number of Ones: 5</p><div style="display:flex; align-items:flex-start; gap:25px;"><table class="pv-table"><tbody><tr class="pv-header-row"><th><span style="font-size:11px">PV →</span>&nbsp;</th><th>1</th><th>1</th><th>1</th><th>1</th><th>0</th><th>0</th><th>0</th><th>0</th><th>1</th><th>0</th><th>0</th><th>0</th></tr><tr><th style="white-space:nowrap">k &nbsp; d</th><th> 0</th><th> 1</th><th> 2</th><th> 3</th><th> 4</th><th> 5</th><th> 6</th><th> 7</th><th> 8</th><th> 9</th><th> 10</th><th> 11</th><th> 12</th><th> 13</th></tr><tr><th>1</th><td class="yellow">0</td><td><span class="red-bold">1</span></td><td>*</td></tr><tr><th>2</th><td> </td><td class="yellow">0</td><td><span class="red-bold">1</span></td><td>*</td></tr><tr><th>3</th><td> </td><td> </td><td> </td><td><span class="red-bold">1</span></td><td>*</td></tr><tr><th>4</th><td> </td><td> </td><td class="yellow">0</td><td> </td><td><span class="red-bold">1</span></td><td>*</td></tr><tr><th>5</th><td> </td><td> </td><td> </td><td class="yellow">0</td><td><span class="red-bold">0</span></td><td> </td><td>*</td></tr><tr><th>6</th><td> </td><td> </td><td> </td><td> </td><td><span class="red-bold">0</span></td><td> </td><td> </td><td>*</td></tr><tr><th>7</th><td> </td><td> </td><td> </td><td> </td><td class="yellow"><span class="red-bold">0</span></td><td> </td><td> </td><td> </td><td>*</td></tr><tr><th>8</th><td> </td><td> </td><td> </td><td> </td><td><span class="red-bold">0</span></td><td class="yellow">0</td><td> </td><td> </td><td> </td><td>*</td></tr><tr><th>9</th><td> </td><td> </td><td> </td><td> </td><td> </td><td><span class="red-bold">1</span></td><td> </td><td> </td><td> </td><td> </td><td>*</td></tr><tr><th>10</th><td> </td><td> </td><td> </td><td> </td><td> </td><td><span class="red-bold">0</span></td><td class="yellow">0</td><td> </td><td> </td><td> </td><td> </td><td>*</td></tr><tr><th>11</th><td> </td><td> </td><td> </td><td> </td><td> </td><td><span class="red-bold">0</span></td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td>*</td></tr><tr><th>12</th><td> </td><td> </td><td> </td><td> </td><td> </td><td><span class="red-bold">0</span></td><td> </td><td class="yellow">0</td><td> </td><td> </td><td> </td><td> </td><td> </td><td>*</td></tr><tr><th>13</th><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td class="yellow">0</td><td> </td><td> </td><td> </td><td> </td><td> </td><td>*</td></tr><tr><th>14</th><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td>*</td></tr><tr><th>15</th><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td class="yellow">0</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td>*</td></tr><tr><th>16</th><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td class="yellow">0</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td>*</td></tr><tr><th>17</th><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td>*</td></tr><tr><th>18</th><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td class="yellow">0</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td>*</td></tr><tr><th>19</th><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td>*</td></tr><tr><th>20</th><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td class="yellow">0</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td>*</td></tr><tr><th>21</th><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td class="yellow">0</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td>*</td></tr><tr><th>22</th><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr></tbody></table><div class="explain-box"><b>(Explanation)</b><br>A cell shown in <span style="background:yellow; padding:0 4px;">yellow</span> means that if the Parity Vector stops at that cell, the Parity Vector is just converged. If it does not reach this cell, it indicates that it is an unconverged PV.<br><br>The Parity Vector that continues past the "0" cells will be already converged.<br><br>Therefore, in the figure, <b>Region A</b> (the area to the right of cell "0") is the <b>unconverged region</b>, and <b>Region B</b> (the area to the left of cell "0") is the <b>already converged region</b>.</div></div><p class="msg"><b>Parity Vector (up to Glide):</b><br>111100001000</p>
+</div>
+<div class="footer">Collatz Conjecture Tool Suite — Unified Launcher (PHP)</div>
+
+<deepl-input-controller translate="no"><template shadowrootmode="open"><link rel="stylesheet" href="chrome-extension://cofdbpoegempjloogbagkncekinflcnj/build/content.css"><div dir="ltr" style="visibility: initial !important;"><div class="dl-input-translation-container svelte-95aucy"><div></div></div></div></template></deepl-input-controller></body></html>

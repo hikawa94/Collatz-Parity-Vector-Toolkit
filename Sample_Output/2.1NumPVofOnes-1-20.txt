@@ -1,0 +1,191 @@
+Collatz Parity Vector Counter - d = 1 to 20
+
+d = 2
+  length=2, count=1
+  length=3, count=1
+  W(2) total = 2
+
+d = 3
+  length=3, count=1
+  length=4, count=2
+  W(3) total = 3
+
+d = 4
+  length=4, count=1
+  length=5, count=3
+  length=6, count=3
+  W(4) total = 7
+
+d = 5
+  length=5, count=1
+  length=6, count=4
+  length=7, count=7
+  W(5) total = 12
+
+d = 6
+  length=6, count=1
+  length=7, count=5
+  length=8, count=12
+  length=9, count=12
+  W(6) total = 30
+
+d = 7
+  length=7, count=1
+  length=8, count=6
+  length=9, count=18
+  length=10, count=30
+  length=11, count=30
+  W(7) total = 85
+
+d = 8
+  length=8, count=1
+  length=9, count=7
+  length=10, count=25
+  length=11, count=55
+  length=12, count=85
+  W(8) total = 173
+
+d = 9
+  length=9, count=1
+  length=10, count=8
+  length=11, count=33
+  length=12, count=88
+  length=13, count=173
+  length=14, count=173
+  W(9) total = 476
+
+d = 10
+  length=10, count=1
+  length=11, count=9
+  length=12, count=42
+  length=13, count=130
+  length=14, count=303
+  length=15, count=476
+  W(10) total = 961
+
+d = 11
+  length=11, count=1
+  length=12, count=10
+  length=13, count=52
+  length=14, count=182
+  length=15, count=485
+  length=16, count=961
+  length=17, count=961
+  W(11) total = 2652
+
+d = 12
+  length=12, count=1
+  length=13, count=11
+  length=14, count=63
+  length=15, count=245
+  length=16, count=730
+  length=17, count=1691
+  length=18, count=2652
+  length=19, count=2652
+  W(12) total = 8045
+
+d = 13
+  length=13, count=1
+  length=14, count=12
+  length=15, count=75
+  length=16, count=320
+  length=17, count=1050
+  length=18, count=2741
+  length=19, count=5393
+  length=20, count=8045
+  W(13) total = 17637
+
+d = 14
+  length=14, count=1
+  length=15, count=13
+  length=16, count=88
+  length=17, count=408
+  length=18, count=1458
+  length=19, count=4199
+  length=20, count=9592
+  length=21, count=17637
+  length=22, count=17637
+  W(14) total = 51033
+
+d = 15
+  length=15, count=1
+  length=16, count=14
+  length=17, count=102
+  length=18, count=510
+  length=19, count=1968
+  length=20, count=6167
+  length=21, count=15759
+  length=22, count=33396
+  length=23, count=51033
+  W(15) total = 108950
+
+d = 16
+  length=16, count=1
+  length=17, count=15
+  length=18, count=117
+  length=19, count=627
+  length=20, count=2595
+  length=21, count=8762
+  length=22, count=24521
+  length=23, count=57917
+  length=24, count=108950
+  length=25, count=108950
+  W(16) total = 312455
+
+d = 17
+  length=17, count=1
+  length=18, count=16
+  length=19, count=133
+  length=20, count=760
+  length=21, count=3355
+  length=22, count=12117
+  length=23, count=36638
+  length=24, count=94555
+  length=25, count=203505
+  length=26, count=312455
+  W(17) total = 663535
+
+d = 18
+  length=18, count=1
+  length=19, count=17
+  length=20, count=150
+  length=21, count=910
+  length=22, count=4265
+  length=23, count=16382
+  length=24, count=53020
+  length=25, count=147575
+  length=26, count=351080
+  length=27, count=663535
+  length=28, count=663535
+  W(18) total = 1900470
+
+d = 19
+  length=19, count=1
+  length=20, count=18
+  length=21, count=168
+  length=22, count=1078
+  length=23, count=5343
+  length=24, count=21725
+  length=25, count=74745
+  length=26, count=222320
+  length=27, count=573400
+  length=28, count=1236935
+  length=29, count=1900470
+  length=30, count=1900470
+  W(19) total = 5936673
+
+d = 20
+  length=20, count=1
+  length=21, count=19
+  length=22, count=187
+  length=23, count=1265
+  length=24, count=6608
+  length=25, count=28333
+  length=26, count=103078
+  length=27, count=325398
+  length=28, count=898798
+  length=29, count=2135733
+  length=30, count=4036203
+  length=31, count=5936673
+  W(20) total = 13472296
+

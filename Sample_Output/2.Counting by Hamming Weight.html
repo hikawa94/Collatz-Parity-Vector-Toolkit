@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)http://localhost/php/Collatz_Launcher.php?tab=hamming -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Counting by Hamming Weight - Collatz Conjecture Tool Suite</title>
+<style>
+    body  { font-family: monospace; margin: 0; padding: 0; background: #f4f6f9; }
+    .topbar { background: #1e3a8a; padding: 16px 24px; }
+    .topbar h1 { color: white; margin: 0; font-size: 22px; text-align: center; }
+    .menu { background: #163066; display: flex; justify-content: center; flex-wrap: wrap; }
+    .menu a { color: #cfe0ff; text-decoration: none; padding: 12px 18px; font-size: 14px; }
+    .menu a:hover, .menu a.active { background: #0d1f47; color: white; }
+    .container { max-width: 1300px; margin: 20px auto; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    h2 { text-align: center; color: #1e3a8a; }
+    table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+    th, td { border: 1px solid #444; padding: 10px; text-align: center; }
+    th { background: #1e3a8a; color: white; }
+    td.left { text-align: left; }
+    .sci { font-size: 0.95em; color: #d32f2f; font-weight: bold; }
+    .time { font-size: 16px; color: #1e3a8a; font-weight: bold; text-align: center; }
+    .error { color: red; text-align: center; font-weight: bold; }
+    .desc { width: 85%; margin: 0 auto 20px; line-height: 1.7; }
+    form { text-align: center; margin: 20px 0; }
+    input[type="text"], input[type="number"] { padding: 6px; font-size: 14px; }
+    input[type="submit"], button { padding: 10px 30px; font-size: 15px; background: #0066cc; color: white; border: none; cursor: pointer; border-radius: 4px; margin-left: 10px; }
+    input[type="submit"]:hover, button:hover { background: #0055aa; }
+    .pv-table { border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+    .pv-table th, .pv-table td { border: 1px solid #888; padding: 3px 6px; text-align: center; white-space: nowrap; }
+    .pv-header-row th { background: orange; color: black; }
+    .pv-header-row th:first-child { background: white; font-size: 11px; }
+    .yellow { background: yellow; }
+    .red-bold { color: red; font-weight: bold; }
+    .explain-box { max-width: 380px; background:#fff8e1; border:1px solid #d4a017; border-radius:8px; padding:14px 18px; font-size:13px; line-height:1.7; }
+    .result-table { border-collapse: collapse; width: 95%; margin: 20px auto; background: white; }
+    .result-table td { border: 0; padding: 3px 8px; white-space: nowrap; text-align:left; }
+    .highlight { color: red; font-weight: bold; }
+    .summary { color: red; text-align:left; }
+    a.dl { color: #0066cc; }
+    .footer { text-align: center; color: #888; font-size: 12px; margin: 30px 0; }
+</style>
+</head>
+<body>
+<div class="topbar"><h1>Collatz Conjecture Tool Suite</h1></div>
+<div class="menu"><a href="http://localhost/php/Collatz_Launcher.php?tab=home">Home</a><a href="http://localhost/php/Collatz_Launcher.php?tab=length">1. Counting by Length</a><a href="http://localhost/php/Collatz_Launcher.php?tab=hamming" class="active">2. Counting by Hamming Weight</a><a href="http://localhost/php/Collatz_Launcher.php?tab=calculator">3. Collatz Calculator</a><a href="http://localhost/php/Collatz_Launcher.php?tab=pvgraph">4. PV Graph (from PV string)</a><a href="http://localhost/php/Collatz_Launcher.php?tab=numgraph">5. PV Graph (from Number)</a></div>
+<div class="container">
+<h2>2. Counting by Hamming Weight</h2>
+<div class="desc">Counts the number of converged and unconverged Parity Vectors for each Hamming weight d.</div>
+<form method="POST" action="http://localhost/php/Collatz_Launcher.php?tab=hamming">
+    <label>Start "Hamming Weight" (A): <input type="number" name="A" value="" min="1" max="10000" required=""></label>
+    <label>End "Hamming Weight" (B): <input type="number" name="B" value="" min="1" max="10000" required=""></label>
+    <input type="submit" value="Execute">
+</form><p class="time">Calculation Time: 2026-06-30 21:58:08 → 2026-06-30 21:58:08<br><strong>Processing Time: 0.01 seconds</strong></p><p style="text-align:center"><a class="dl" href="http://localhost/php/data/NumPVofOnes-1-20.txt" download="">📥 Download TXT Result</a></p><table><tbody><tr><th>Hamming Weight d</th><th>kmin(d)</th><th>(A) X(d) = Just Converged</th><th>(B) W(d) = Unconverged</th><th>ρ<sub>d</sub> = W(d)/2<sup>kmin</sup></th></tr><tr><td>2</td><td>4</td><td class="left">0.000001e+0<br><small>1</small></td><td class="left">0.000002e+0<br><small>2</small></td><td><span class="sci">1.2500e-1</span></td></tr><tr><td>3</td><td>5</td><td class="left">0.000002e+0<br><small>2</small></td><td class="left">0.000003e+0<br><small>3</small></td><td><span class="sci">9.3750e-2</span></td></tr><tr><td>4</td><td>7</td><td class="left">0.000003e+0<br><small>3</small></td><td class="left">0.000007e+0<br><small>7</small></td><td><span class="sci">5.4688e-2</span></td></tr><tr><td>5</td><td>8</td><td class="left">0.000007e+0<br><small>7</small></td><td class="left">0.000012e+1<br><small>12</small></td><td><span class="sci">4.6875e-2</span></td></tr><tr><td>6</td><td>10</td><td class="left">0.000012e+1<br><small>12</small></td><td class="left">0.000030e+1<br><small>30</small></td><td><span class="sci">2.9297e-2</span></td></tr><tr><td>7</td><td>12</td><td class="left">0.000030e+1<br><small>30</small></td><td class="left">0.000085e+1<br><small>85</small></td><td><span class="sci">2.0752e-2</span></td></tr><tr><td>8</td><td>13</td><td class="left">0.000085e+1<br><small>85</small></td><td class="left">0.000173e+2<br><small>173</small></td><td><span class="sci">2.1118e-2</span></td></tr><tr><td>9</td><td>15</td><td class="left">0.000173e+2<br><small>173</small></td><td class="left">0.000476e+2<br><small>476</small></td><td><span class="sci">1.4526e-2</span></td></tr><tr><td>10</td><td>16</td><td class="left">0.000476e+2<br><small>476</small></td><td class="left">0.000961e+2<br><small>961</small></td><td><span class="sci">1.4664e-2</span></td></tr><tr><td>11</td><td>18</td><td class="left">0.000961e+2<br><small>961</small></td><td class="left">0.002652e+3<br><small>2652</small></td><td><span class="sci">1.0117e-2</span></td></tr><tr><td>12</td><td>20</td><td class="left">0.002652e+3<br><small>2652</small></td><td class="left">0.008045e+3<br><small>8045</small></td><td><span class="sci">7.6723e-3</span></td></tr><tr><td>13</td><td>21</td><td class="left">0.008045e+3<br><small>8045</small></td><td class="left">0.017637e+4<br><small>17637</small></td><td><span class="sci">8.4100e-3</span></td></tr><tr><td>14</td><td>23</td><td class="left">0.017637e+4<br><small>17637</small></td><td class="left">0.051033e+4<br><small>51033</small></td><td><span class="sci">6.0836e-3</span></td></tr><tr><td>15</td><td>24</td><td class="left">0.051033e+4<br><small>51033</small></td><td class="left">0.108950e+5<br><small>108950</small></td><td><span class="sci">6.4939e-3</span></td></tr><tr><td>16</td><td>26</td><td class="left">0.108950e+5<br><small>108950</small></td><td class="left">0.312455e+5<br><small>312455</small></td><td><span class="sci">4.6559e-3</span></td></tr><tr><td>17</td><td>27</td><td class="left">0.312455e+5<br><small>312455</small></td><td class="left">0.663535e+5<br><small>663535</small></td><td><span class="sci">4.9437e-3</span></td></tr><tr><td>18</td><td>29</td><td class="left">0.663535e+5<br><small>663535</small></td><td class="left">1.900470e+6<br><small>1900470</small></td><td><span class="sci">3.5399e-3</span></td></tr><tr><td>19</td><td>31</td><td class="left">1.900470e+6<br><small>1900470</small></td><td class="left">5.936673e+6<br><small>5936673</small></td><td><span class="sci">2.7645e-3</span></td></tr><tr><td>20</td><td>32</td><td class="left">5.936673e+6<br><small>5936673</small></td><td class="left">1.347229e+7<br><small>13472296</small></td><td><span class="sci">3.1368e-3</span></td></tr></tbody></table>
+</div>
+<div class="footer">Collatz Conjecture Tool Suite — Unified Launcher (PHP)</div>
+
+<deepl-input-controller translate="no"><template shadowrootmode="open"><link rel="stylesheet" href="chrome-extension://cofdbpoegempjloogbagkncekinflcnj/build/content.css"><div dir="ltr" style="visibility: initial !important;"><div class="dl-input-translation-container svelte-95aucy"><div></div></div></div></template></deepl-input-controller></body></html>
